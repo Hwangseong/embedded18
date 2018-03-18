@@ -1,0 +1,40 @@
+1. 서버 비트 확인
+	-> arch
+	
+2. CPU의 코어수 확인
+	-> grep -c processor/proc/cpuinfo
+	
+3. 메모리 용량 확인
+	-> dmidecode -t memory
+	
+4. 그래픽 관련
+	-> glxinfo | grep vendor : 그래픽카드 공급업체 정보
+	-> lspci | grep VGA : 그래픽 카드 장치이름
+	-> Xrandr : 지원되는 디스플레이 해상도 표시
+	
+5. 오디오 관련
+	-> lspci | grep Audio : 오디오 장치이름 보기
+	
+6. 소프트웨어 버전
+	-> cat/etc/issue : 현재 배포판 버전 보기
+	-> apt-cache showpkg (패키지이름) : 패키지에 대한 등록정보 표시
+	-> uname -r : 현재 시스템의 커널버전 보기
+	-> uname -a : 시스템의 모든 커널에 대한 자세한 정보 표시
+
+7. 네트워크 관련
+	-> lspci | grep Ethernet : 이더넷 장치 보기
+	-> lfconfig : 네트워크 인터페이스, IP에 대한 정보 보기
+	
+8. 프로세서 관련
+	-> cat/proc/cpuinfo : 프로세서의 정보 보기
+	-> Top : 프로세스 정보 및 목록 보기
+
+9. 메모리 관련
+	-> cat/proc/meminfo : 메모리 정보 표시
+	-> free -m : 메모리 사용량 표시
+	
+10. 하드디스크 관련
+	-> df-H : 파티션 정보 보기
+	
+11. USB 관련
+	-> lsusb : USB버스에 연결된 장치 보기

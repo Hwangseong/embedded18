@@ -1,0 +1,22 @@
+SSH 기본 포트는 22
+*변경 후 방화벽등에 의해 접속이 안될수 있으니 주의!*
+
+/etc/ssh/sshd_config에서 포트 설정부분이 주석처리 되어있어, 기본 포트인 22포트를 사용
+
+--설정 변경 방법--
+1. sshd_config 파일을 편집 -> vi /etc/ssh/sshd_config
+2. 파일 내용에 #Port 22 밑부분에 Port NN(포트번호)추가 -> 주석부분은 그대로 두고 원하는 포트번호 추가
+3. sshd 재시작 -> service sshd restart
+4. 리눅스 ssh 다른 포트 접속 -p -> (1) ssh -p포트 아이디@서버주소  (2) ssh 아이디@서버주소 -p포트
+
+-------------
+
+----우분투------
+
+1. ssh 설치 -> -sudo apt-get install sshd
+2. #vi /etc/ssh/sshd_config 파일 수정 -> Port 22 부분을 원하는 포트로 변경
+3. 변경 후 서비스 재시작 -> -sudo service ssh restart
+4. 방화벽을 사용할 경우 방화벽에서 바꾼 ssh포트를 허용 해줘야한다
+    -> sudo ufw allow (변경ssh포트)/tcp -> 포트 접속 허용
+	-> sudo ufw deny 22/tcp -> 포트 접속 해제
+-------------
