@@ -1,0 +1,30 @@
+import RPi.GPIO as GPIO
+import time
+
+GPIO.setmode(GPIO.BCM)
+
+GPIO.setup(21,GPIO.OUT)
+GPIO.setup(17,GPIO.OUT)
+GPIO.setup(24,GPIO.IN)
+
+motor = GPIO.PWM(17,50)
+
+motor.start(7.5)
+
+try:
+	while True:
+		inputIO = GPIO.input(24)
+		
+		if inputIO == True:
+		GPIO.output(21,GPIO.HIGH)
+		motor.ChangeDutyCycle(7.5)
+		time.sleep(1)
+		motor.ChangeDutyCycle(12.5)
+		time.sleep(1)
+		motor.ChangeDutyCycle(2.5)
+		time.sleep(1)
+	else:
+		GPIO.output(21,GPIO.LOW)
+
+except KeyboardInterrupt:
+	GPIO.cleanup()
